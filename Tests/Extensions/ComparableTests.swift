@@ -1,7 +1,7 @@
 import XCTest
 @testable import Extensions
 
-final class andhashUtilitiesTests: XCTestCase {
+final class ComparableTests: XCTestCase {
     let closedRange = 1...3
     let start = 1
     let contained = 2
