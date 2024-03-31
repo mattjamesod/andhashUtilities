@@ -7,6 +7,7 @@ let package = Package(
     name: "andhashUtilities",
     platforms: [
         .iOS("17.0"),
+        .macOS("12.0"),
     ],
     products: [
         .library(name: "Extensions", targets: ["Extensions"]),
