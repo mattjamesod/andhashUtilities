@@ -1,5 +1,5 @@
 import XCTest
-@testable import Extensions
+@testable import UtilExtensions
 
 final class ArrayTests: XCTestCase {
     func testCompactRemovesNilItems() {

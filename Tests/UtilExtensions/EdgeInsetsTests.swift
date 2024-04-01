@@ -1,6 +1,6 @@
 import XCTest
 import SwiftUI
-@testable import Extensions
+@testable import UtilExtensions
 
 final class EdgeInsetsTests: XCTestCase {
     let horizontal: Double = 12

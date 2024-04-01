@@ -1,5 +1,5 @@
 import XCTest
-@testable import Extensions
+@testable import UtilExtensions
 
 final class ComparableTests: XCTestCase {
     let closedRange = 1...3

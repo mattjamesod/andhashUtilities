@@ -4,18 +4,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "andhashUtilities",
+    name: "AndHashUtilities",
     platforms: [
         .iOS("17.0"),
         .macOS("13.0"),
     ],
     products: [
-        .library(name: "Extensions", targets: ["Extensions"]),
-        .library(name: "Views", targets: ["Views"]),
+        .library(name: "UtilExtensions", targets: ["UtilExtensions"]),
+        .library(name: "UtilViews", targets: ["UtilViews"]),
     ],
     targets: [
-        .target(name: "Extensions"),
-        .testTarget(name: "ExtensionsTests", dependencies: ["Extensions"]),
-        .target(name: "Views"),
+        .target(name: "UtilExtensions"),
+        .testTarget(name: "UtilExtensionsTests", dependencies: ["UtilExtensions"]),
+        .target(name: "UtilViews"),
     ]
 )

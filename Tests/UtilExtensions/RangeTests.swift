@@ -1,6 +1,6 @@
 import XCTest
 import SwiftUI
-@testable import Extensions
+@testable import UtilExtensions
 
 final class RangeTests: XCTestCase {
     func testIndifferentOrdering() {
