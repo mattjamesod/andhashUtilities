@@ -1,18 +1,13 @@
 import SwiftUI
 
-public struct SymmetricGrid<Data: Identifiable, DataView: View>: View {
+public struct SimpleGrid<Data: Identifiable, DataView: View>: View {
     let data: [Data]
-    
     let width: Int
-    let length: Int
-    private var count: Int { data.count }
-    
     let callback: ((Data) -> (DataView))
     
-    public init(data: [Data], width: Int, length: Int, callback: @escaping ((Data) -> (DataView))) {
+    public init(data: [Data], width: Int, callback: @escaping ((Data) -> (DataView))) {
         self.data = data
         self.width = width
-        self.length = length
         self.callback = callback
     }
     
@@ -25,6 +20,21 @@ public struct SymmetricGrid<Data: Identifiable, DataView: View>: View {
                     }
                 }
             }
+            
+            GridRow {
+                ForEach(self.raggedRow) { datum in
+                    callback(datum)
+                }
+            }
         }
+    }
+    
+    private var count: Int { 
+        data.count
+    }
+    
+    // Leftover items which don't make a full row by themselves
+    private var raggedRow: [Data] {
+        Array(data[count - (count % width)..<count])
     }
 }
