@@ -24,6 +24,7 @@ public struct SimpleGrid<Data: Identifiable, DataView: View>: View {
             GridRow {
                 ForEach(self.raggedRow) { datum in
                     callback(datum)
+                    callback(datum).opacity(0)
                 }
             }
         }
@@ -36,5 +37,7 @@ public struct SimpleGrid<Data: Identifiable, DataView: View>: View {
     // Leftover items which don't make a full row by themselves
     private var raggedRow: [Data] {
         Array(data[count - (count % width)..<count])
+        
+        // 1 - (1 % 2)..<1
     }
 }
