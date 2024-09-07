@@ -11,13 +11,21 @@ let package = Package(
     ],
     products: [
         .library(name: "Logging", targets: ["Logging"]),
+        .library(name: "UtilAlgorithms", targets: ["UtilAlgorithms"]),
         .library(name: "UtilExtensions", targets: ["UtilExtensions"]),
         .library(name: "UtilViews", targets: ["UtilViews"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-async-algorithms", from: "0.1.0"),
+    ],
     targets: [
         .target(name: "Logging"),
+        .target(name: "UtilAlgorithms"),
         .target(name: "UtilExtensions"),
         .testTarget(name: "UtilExtensionsTests", dependencies: ["UtilExtensions"]),
-        .target(name: "UtilViews"),
+        .target(
+            name: "UtilViews",
+            dependencies: [ .product(name: "AsyncAlgorithms", package: "swift-async-algorithms") ]
+        ),
     ]
 )
