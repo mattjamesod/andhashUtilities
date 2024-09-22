@@ -1,5 +1,7 @@
 import SwiftUI
 
+/// Just draw a grid FFS
+
 public struct SimpleGrid<Data: Identifiable, DataView: View>: View {
     let data: [Data]
     let width: Int

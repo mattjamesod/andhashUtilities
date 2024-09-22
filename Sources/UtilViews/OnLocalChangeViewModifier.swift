@@ -1,5 +1,16 @@
 import SwiftUI
 
+/// For State management. Takes two values, one of which can only be changed by the parent calling
+/// view `internalValue`, and one which can be affected by the surrounding program environment
+/// `externalValue`.
+///
+/// `.onLocalChange` ensures that a callback is fires when the internal value is changed
+/// by it's owner, AND that the internal value stays in sync with the external value, without triggering the
+/// callback.
+///
+/// This seems esoteric, but is extremely useful when forced to have two sources of truth, i.e. a TextField
+/// should mirror the local database value, but also needs to depend on a local @State variable
+
 struct OnLocalChangeViewModifier<T: Equatable>: ViewModifier {
     @Binding var internalValue: T
     let externalValue: T

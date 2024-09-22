@@ -1,6 +1,9 @@
 import SwiftUI
 import AsyncAlgorithms
 
+/// Creates a text field which only updates the bound value after debouncing for the given `wait` duration
+/// Useful when triggering expensive callbacks on change
+
 public struct DebouncedTextField: View {
     @State var channel: AsyncChannel<String> = .init()
     
